@@ -1,0 +1,44 @@
+# let's build a robot brista
+print("""Hello, Welcome to networkchunk coffee
+!!!!!""")
+name = input("What is your name? ")
+print(f"Hello {name}, thankyou so much for coming here today 😌")
+menu = "pizza, coffe, dolmeh, chocolate";
+print(name + " What do you want from our menu\n our menu today is? " + menu)
+order = input()
+print(name + " alright! we have that " + order + " ready for you in a moment")
+-----------------------------------------------------------------------------------------------------------------------------
+print(""" Hello! welcome to coffeee shop
+          hope you are alright😌""")
+while True:
+    name = input("Enter your name ")
+    if name == "Ben":
+        print("You evill go back right now!! ")
+    else:
+        print("Welcome")
+        break
+-----------------------------------------------------
+print(""" Hello! welcome to coffeee shop
+          hope you are alright😌""")
+while True:
+    name = input("Enter your name ")
+    if "Ben".lower() in name.lower():
+        print("You evill go back right now!! ")
+        exit()
+    else:
+        print("Welcome")
+        break
+---------------------------------------------------------------------
+print(""" Hello! welcome to coffeee shop
+          hope you are alright😌""")
+name = input("Enter your name: ")
+if "Ben".lower() in name.lower():
+    ask = input("Are you evil y/n? ")
+    if ask in ["yes","y","Y"]:
+        print("There is no place for evil energies there go back right now!!!")
+        exit()
+    else:
+        print(f"Welcome angle ben \"{name}\"")
+else:
+    print("Welcome " + name + " nice to meet you" )
+------------------------------------------------------------------

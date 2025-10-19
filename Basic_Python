@@ -1,0 +1,109 @@
+#z 1. Name and Age
+#Ask the user for their name and age.
+#Print a message like: “Hello [name], you will turn 100 in [year].”"""
+name = input("Enter your name: ")
+age = int(input("Enter your age: "))
+print(f"Hell0 {name}! \n you will me 100 in: {100 - age}")
+--------------------------------------------------------------------------
+ #2. Simple Calculator
+ #Ask the user for two numbers and an operation (+, -, *, /).
+ #Perform the operation and display the result
+a = int(input(" Enter First number: "))
+b = int(input(" Enter Second number: "))
+operator = input(" addition press: + \n subtraction press: - \n multiplication press: * \n division press: /")
+if operator in {'+','-','*','/'}:
+   if operator == '+':
+    print(a+b)
+   elif operator == '-':
+    print(a-b)
+   elif operator == '*':
+    print(a*b)
+   elif operator == '/':
+    print(a//b)
+else:
+    print("invalid")
+
+----------------------------------------------------------------------------------
+# 3. Mad Libs
+# Ask the user for a noun, verb, adjective, and adverb.
+#Insert them into a short story and print it 
+noun = input("Enter your name: ")
+verb  = input(" what is your hobby")
+adverb = input(" what modifies your  hobby ")
+adjective = input(" enter your quality ")
+print(f" Hello ! The {adjective} person {noun} we welcomed you with open arms \n I am surprised by your work of {verb} \n really it's a {adverb} task to attain as a hobby \n wish you best of luck! ")
+---------------------------------------------------------------------------------
+# 4. String Reverser
+#Ask the user for a string.
+#Print the string reversed 
+def reverse_string(s):
+    reversed = ""
+    for i in range(len(s)-1,-1,-1):
+        reversed += s[i]
+    return reversed
+word  = input("Enter any string: ")
+print(reverse_string(word))
+----------------------------------------------------------------------------------
+# 5. Multiplication Table
+ #Print its multiplication table up to 10
+matrix = [[0 for _ in range(10)] for _ in range(10)]
+for i in range(10):
+    for j in range(10):
+        matrix[i][j] = (i+1) * (j+1)
+        print(matrix[i][j],end = "    ")
+    print("\n")
+
+------------------------------------------------------------------------------
+#6. Password Generator (Simple)
+#Ask the user for three words.
+#Combine the first letter of each word to form a “password.
+a = input(" Enter your name ")
+b = input(" Enter your birth month ")
+c = input(" Enter your fav personlaity name ")
+password = ""
+password += a[0]
+password += b[0]
+password += c[0]
+
+print(password)
+-------------------------------------------------------------------------------------
+#7. Countdown Timer
+#Ask the user for a number of seconds.
+#Print a countdown to zero (just print each number, no actual delay needed yet).
+import time, winsound
+seconds = int(input("Enter number of secondes: "))
+for sec in range(seconds):
+    print(f"{sec+1} ")
+    winsound.Beep(2000,1000)
+    time.sleep(1)
+    
+--------------------------------------------------------------------------
+# 8. Number Checker
+# Ask the user for a number.
+# Tell them if it’s even or odd
+number = int(input(" Enter any number: "))
+if number%2 == 0:
+    print(f"{number} is even ")
+else:
+    print(f"{number} is odd")
+---------------------------------------------------------------------------------------------------------------------
+# 9. Shopping List
+#Let the user enter 5 items.
+#Store them in a list.
+#Print the list in reverse order
+shopping_list = []*5
+for i in range(5):
+    shopping_list.append( input(f"Enter item {i+1}: "))
+print("shopping list is: ")
+for j in range(5-1,-1,-1):
+    print(shopping_list[j])
+-------------------------------------------------------------------------------
+# 10. Simple Interest Calculator
+# Ask the user for principal, rate, and time.
+# Calculate and print simple interest: SI = P * R * T / 100
+principal = float(input(" enter amount of money "))
+rate = float(input(" Enter intrest per year "))
+time = float(input(" Enter time in years"))
+simple_intrest = (principal * rate * time)/100
+print("your simple intrest is ",simple_intrest)
+-----------------------------------------------------------------------------------------------------

@@ -1,0 +1,195 @@
+# we will learn about function and scope of variable inside and outside the function
+def hello():
+    print("good morning")
+    print(""" Good evening
+Good afternoon""")
+
+hello()
+hello()
+print("---> once again")
+hello()
+
+# function are use to block part of code that we will need again and again during program execution
+# it basically solves a part of a problem
+-------------------------------------------------------------------------
+def hello_to(name):
+    print("Good morning " + name)
+    print("Good evening " + name)
+    print("Good night! " + name)
+
+hello_to("Zubia")
+# in hello_to function "name" is parameter which is actually a variable that holds a argument which is 'zubia'
+----------------------------------------------------------------------
+# Return values and return statments:
+# Returns any value according to number entered (1-9)
+import random
+def get_answer(digit):
+    if digit == 1:
+        return "one is best"
+    elif digit == 2:
+        return "China"
+    elif digit == 3:
+        return 999
+    elif digit == 4:
+        return "Square"
+    elif digit == 5:
+        return 5.0
+    elif digit == 6:
+        return "❤️❤️"
+    elif digit == 7:
+        return " all is well"
+    elif digit == 8:
+        return "second last opportunity"
+    elif digit == 9:
+        return "nice to meet you 😗"
+    else:
+        print("invalid entry!!")
+        exit()
+print("y/n ?")
+Input = input('>')
+if Input.lower() in ['y','yes']:
+    print(get_answer( random.randint(1,9)))
+else:
+    print("good bye 😌")
+    exit()
+---------------------------------------------------------------------
+# The None value:
+spam = print('Hello world!! ')
+print(spam == None)
+
+value = 299
+print(value == None)
+value = None
+print(value == None)
+value = "myself"
+print(value == None)
+-------------------------------------------------------------------
+# Named parameters 
+# parameters in python are in order in which tey are define
+# randon.randint(10,1) causes an error because 1st arg should be small than 2nd
+ # ------ program to print head and tail
+import random
+for i in range(100):
+    if random.randint(0,1) == 1:
+        print('T',end = " ")
+    else:
+        print('H',end = " ")
+# printing multiple values using print function
+print('\n''Pakistan','Japan','Korea')
+# replacing space with ','
+print('\n''Pakistan','Japan','Korea',sep=',')
+
+# conclusion: named parameter is just a option if any argument is not
+# provided to the function 
+# example in print() the default value of end parameter is end = '\n'
+-------------------------------------------------------------------
+maximum recursion exceeded error 
+# The call stack 
+#--> reccursive execution
+def a():
+    print('a() starts')
+    b()
+    d()
+    print('a() returns')
+
+def b():
+    print('b() starts')
+    c()
+    print('b() returns')
+
+def c():
+    print('c() starts')
+    d()
+    print('c() returns')
+
+def d():
+    print('d() starts')
+    a()
+    print('d() returns')
+print(a())
+print(b())
+print(c())
+print(d())
+-------------------------------------------------------------------
+# local and global variable
+def local():
+    eggs = 'local_scope'
+    return eggs
+print(local())
+print(eggs) # as eggs is not global variable this will cause an error 
+--------------------------------------------------------------------
+# local and global variabl
+eggs = 'global' 
+def local():
+    global eggs 
+    return eggs
+print(local())
+print(eggs) # as eggs is not global variable this will cause an error 
+# we have to convert it into global variable
+----------------------------------------------------------------
+using a 'global' key word for global variable in python
+global eggs 
+eggs = 'hen'
+def Global():
+    eggs = 'igloo'
+    return eggs
+print(Global())
+print(eggs)
+---------------------------------------------------------------
+Exception handling in python
+# exception handling in python
+def div(no):
+    try:
+        #Any code in this block that causes ZeroDivisionError 
+        #won't crash the program
+        return 42/no
+    except ZeroDivisionError:
+        print('Error: Invalid argument')
+
+div(0)
+print(div(2))
+
+------------------------------------------------------------------
+#exception handling in python
+# exception handling in python
+def div(no):
+    try:
+        #Any code in this block that causes ZeroDivisionError 
+        #won't crash the program
+        return 42/no
+    except ZeroDivisionError:
+        print('Error: Invalid argument')
+
+div(0)
+print(div(2))
+------------------------------------------------------------------------
+#A short guess program
+def Guess_number(no):
+    guess = 100
+    win = False
+    if no > guess:
+        print('guess is too high')
+    if no < guess:
+        print('guess is too low')
+    if no == guess:
+        print('congrates you won')
+        win = True
+        return win
+    return win
+
+Continue = False
+while Continue == False:
+    no = int(input('Enter any number'))
+    Continue = Guess_number(no)
+----------------------------------------------------------------------
+def collatz(number):
+    if (number // 2) == 0:
+        return (number //2)
+    else :
+        return 3 * number + 1
+print(collatz(12))
+-----------------------------------------
+# lists prac
+import random
+messages = ['hi, my name is Zubia' , 'nice, to meet you' , 'love you with the core of my heart' , ' my family is the best']
+print(messages[random.randint(0,len(messages) - 1)])

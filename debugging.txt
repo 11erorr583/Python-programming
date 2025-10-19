@@ -1,0 +1,92 @@
+
+try:
+    n = int(input('Enter any value between 2-10'))
+    if n < 2 or n > 10:
+        raise Exception('values should be in between 2-10')
+except:
+    if n == 'quit':
+        print('good bye ')
+        exit()
+
+# this causes error bacause n is never being assigned in case when user enter quit
+-----------------------------------------------------------------------------------------------------------------------------
+while True:
+    n = input('Enter any value in between 2 - 10 \n or enter \'quit\' to exit')
+    if n == 'quit':
+        print('Good bye')
+        exit()
+    n = int(n)
+    if n <= 2 or n >= 10:
+        raise Exception('value must be in between 2 - 10')
+# and then I take value from user as a string if it is 'quit' I exit() and if not then I converted it into integer
+next I will try for if user enter as Quit or Q what will happend
+-----------------------------------------------------------------------------------------------------------------------------
+while True:
+    n = input('Enter any value in between 2 - 10:  \n or enter \'quit\' to exit: ')
+    if n == 'quit':
+        print('Good bye')
+        exit()
+    try:
+        n = int(n)
+        if n <= 2 or n >= 10:
+            raise Exception('-->value must be in between 2 - 10')
+        else:
+            print('value accepted')
+    except ValueError:
+        print('--> Please enter \'quit\' only to exit')         
+    except Exception as e:
+        print(e)
+''' When I tried to convert the value entered by
+user it generates value error if user entered something like 'q' or 'any alphabatic' for this I 
+tried exception handling
+and also one more exception generates when i raise exception if the valuse is outside the limit
+this causes the program to crash for this
+I used exception handling again and print that 
+exception.
+'''
+----------------------------------------------------
+def cel_to_foren(n):
+    f =  (n * (9/5) + 32)
+    return f
+while True:
+    celcius = input('Enter celcius \n or enter \'quit\' to exit ')
+    if celcius == 'quit':
+        print('Good Bye!! ')
+        exit()
+    try:
+        celcius = float(celcius)
+        f = cel_to_foren(celcius)
+        print(f'temp in forenheight: {f}')
+    except ValueError:
+        print('please enter tempreture in celcius')
+----------------------------------------------------
+# noe we will practice assert which is use for developer validation
+# remember on thing raise exception and try except is use for
+# user validation while assert is use for developer
+values = [10,20,6,7,100,999,120]
+values.sort()
+values.reverse()
+print(values)
+assert values[0] <= values[-1]
+=------------------------------------------------------
+using logging.DEBUG
+# logging module
+# in this program we will print the factorial of any number entered by user
+import logging
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+
+def fact(n):
+    logging.debug('Start of factorial(' + str(n) + ')')
+    result = 1
+    for i in range(n + 1):
+        logging.debug('i is ' + str(i) + ', total is ' + str(result))
+        result *= i
+    return result
+
+print(fact(5))
+----------------------------------------------------------------
