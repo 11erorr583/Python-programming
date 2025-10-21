@@ -1,0 +1,305 @@
+#Create a list of 5 items and print each using a loop.
+list = []
+for a in range(5):
+    item = input('Enter item with in the list: ')
+    list.append(item)
+    print(list[a])
+print(f'complete list is: {list}')    
+---------------------------------------------------
+#Replace the 3rd element with another value.
+import random
+list = ['cat','dog',55,60.0]
+prev = list[2]
+another = random.randint(0,len(list))
+list[2] = list[another]
+list[another] = prev
+print(list)
+
+'''
+ output:
+ PS Z:\web_hacking\python\programs> python -u "z:\web_hacking\python\programs\practice.py"
+['cat', 55, 'dog', 60.0]
+PS Z:\web_hacking\python\programs> 
+'''
+----------------------------------------------------------
+#Print the list in reverse order.
+list = ['cat', 55, 'dog', 60.0]
+list.reverse()
+print(list)
+'''
+OUTPUT:
+PS Z:\web_hacking\python\programs> python -u "z:\web_hacking\python\programs\practice.py"   
+[60.0, 'dog', 55, 'cat']
+PS Z:\web_hacking\python\programs>
+'''
+--------------------------------------------------
+#Take 5 numbers from the user and store them in a list.
+List = []
+for a in range(5):
+    ITEM = input("Enter item: ")
+    List.append(ITEM)
+print(List)
+-------------------------------------------------------
+#Find the largest and smallest number in that list.
+list = ['11', '21', '33', '44', '55']
+print(f"largest item is: {max(list)} \nsmallest.item is: {min(list)}")
+-------------------------------------------------------
+#Write a program to rotate a list by n positions.
+import logging
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S'
+)
+n = int(input('enter any number to rotate list by nth time\n>>'))
+list = [22,77,88,11,4,99,144,66,99,0,12,5678]
+print(f'original list is: {list}')
+first_nth = list[0:n]
+last_nth = list[-n:]
+print(last_nth)
+print(first_nth)
+# now replacing it with each other
+for i in range(n):
+    list[i] = last_nth[i]
+print(list)
+
+for j in range(1,n+1):
+    logging.debug('j is ' + str(j) + ' n-j is: ' + str(n-j) )
+    list[-j] = first_nth[n-j]
+print(list)
+--------------------------------------------------
+#Count how many elements are greater than the average.
+list = []
+while True:
+    Input_item = input("Enter integer: \n or Enter \' quit \' if you enter all items in list ")
+    if Input_item == 'quit':
+        print('goodbye!! ')
+        break
+    try:
+        Input_item = int(Input_item)
+        list.append(Input_item)
+    except ValueError:
+        print('--->please enter \'quit\' only \n')
+print(list)
+average = sum(list)//len(list)
+print(average)
+count = 0 
+print('the items greater than average are: ')
+for item in list:
+    if item > average:
+        print(item)
+        count+=1
+print('no of items greater than list is ' + str(count))
+--------------------------------------------------
+#Take a list of words and create a new list of their lengths.
+list_words = ['zubia','Lahore','Pakistan','coder','hacker','enthusiast']
+length = []
+for item in list_words:
+    length.append(len(item))
+print(length)
+
+-----------------------------------------------------
+#Merge two sorted lists into one sorted list (manually).
+list1 = [2,5,7,9,1,0,8,23]
+list2 = [77,71,70,44,22,711,999]
+#sorting list 1
+for i in range(len(list1)):
+    j = i -1
+    comparison = list1[i]
+    while comparison < list1[j] and j>=0:
+        list1[j+1] = list1[j]
+        j-=1
+    list1[j+1] = comparison
+print(list1)
+# sorting list2
+for i in range(len(list2)):
+    j = i -1
+    comparison = list2[i]
+    while comparison < list2[j] and j>=0:
+        list2[j+1] = list2[j]
+        j-=1
+    list2[j+1] = comparison
+print(list2)
+#merging both lists into list3
+list3=[]
+list3 = list1
+list3.extend(list2)
+print(list3)
+list3.sort()
+print(list3)
+'''
+output
+PS Z:\web_hacking\python\programs> python -u "z:\web_hacking\python\programs\practice.py"
+[0, 1, 2, 5, 7, 8, 9, 23]
+[22, 44, 70, 71, 77, 711, 999]
+[0, 1, 2, 5, 7, 8, 9, 23, 22, 44, 70, 71, 77, 711, 999]
+[0, 1, 2, 5, 7, 8, 9, 22, 23, 44, 70, 71, 77, 711, 999]
+PS Z:\web_hacking\python\programs> 
+
+
+'''
+---------------------------------------------------------
+
+#Remove duplicates from a list.
+list = [0,999, 1, 2, 5, 7, 8, 9,0, 22, 23, 44,999, 70, 71, 77, 711, 999]
+new_list = []
+for i in range(len(list)):
+    if list[i] not in new_list:
+        new_list.append(list[i])
+list = new_list
+print(list)
+'''
+output:
+PS Z:\web_hacking\python\programs> python -u "z:\web_hacking\python\programs\practice.py"
+[0, 999, 1, 2, 5, 7, 8, 9, 22, 23, 44, 70, 71, 77, 711]
+PS Z:\web_hacking\python\programs> 
+
+'''        
+-------------------------------------------------------
+#Concatenate two lists manually (without using +).
+import copy
+list1 = [2,5,7,9,1,0,8,23]
+list2 = [77,71,70,44,22,711,999]
+list3 = copy.copy(list1)
+print(list3)
+for item in list2:
+    list3.append(item)
+print(f'list 1 is: {list1}\n list 2 is: {list2}\nlist 3 is: {list3}')
+'''
+output:
+PS Z:\web_hacking\python\programs> python -u "z:\web_hacking\python\programs\practice.py"
+[2, 5, 7, 9, 1, 0, 8, 23]
+list 1 is: [2, 5, 7, 9, 1, 0, 8, 23]
+ list 2 is: [77, 71, 70, 44, 22, 711, 999]
+list 3 is: [2, 5, 7, 9, 1, 0, 8, 23, 77, 71, 70, 44, 22, 711, 999]
+PS Z:\web_hacking\python\programs> 
+
+'''
+----------------------------------------------------------------------------------
+
+   #Sort a list without using sort() (write your own logic).
+list = [2, 5, 7, 9, 1, 0, 8, 23, 77, 71, 70, 44, 22, 711, 999]
+for i in range(1,len(list)):
+    j = i-1
+    comparison = list[i]
+    while j>=0 and comparison <= list[j]:
+        list[j+1] = list[j]
+        j-=1 
+    list[j+1] = comparison
+print(list)
+'''
+output:
+PS Z:\web_hacking\python\programs> python -u "z:\web_hacking\python\programs\practice.py"
+[0, 1, 2, 5, 7, 8, 9, 22, 23, 44, 70, 71, 77, 711, 999]
+PS Z:\web_hacking\python\programs> 
+'''
+----------------------------------------------------------------------
+#Given a list of numbers, separate even and odd numbers.
+list = [0, 1, 2, 5, 7, 8, 9, 22, 23, 44, 70, 71, 77, 711, 999]
+for item in list:
+    if item % 2 == 0:
+        print(f"even: {item}")
+    else:
+        print(f"odd: {item}")
+'''
+output:
+even: 0
+odd: 1
+even: 2
+odd: 5
+odd: 7
+even: 8
+odd: 9
+even: 22
+odd: 23
+even: 44
+even: 70
+odd: 71
+odd: 77
+odd: 711
+odd: 999'''
+-------------------------------------------------------------------------
+#Create a list of squares for numbers 1–10 using list comprehension.
+# creating the list of squares in traditional way
+squares=[[x,x**2]for x in range(1,11)]
+print(squares)
+'''
+output:
+PS Z:\web_hacking\python\programs> python -u "z:\web_hacking\python\programs\practice.py"
+[[1, 1], [2, 4], [3, 9], [4, 16], [5, 25], [6, 36], [7, 49], [8, 64], [9, 81], [10, 100]]
+PS Z:\web_hacking\python\programs> 
+
+'''
+----------------------------------------------------------------------
+#Extract only words longer than 4 letters from a list.
+list_words = ['zubia','Lahore','Pakistan','coder','hacker','enthusiast','alic','with']
+for item in list_words:
+    if len(item) == 4:
+        print(item)
+'''
+output:
+PS Z:\web_hacking\python\programs> python -u "z:\web_hacking\python\programs\practice.py"
+alic
+with
+PS Z:\web_hacking\python\programs> 
+
+
+'''
+------------------------------------------------------------------------
+#Password Strength Checker: Check for uppercase, lowercase, digits, special characters using lists.
+
+uppercase = [chr(a) for a in range(65,91) ]
+lowercase = [chr(b) for b in range(97,123)]
+numbers = [chr(l) for l in range(49,58)]
+special_character = [chr(c) for c in range(33,48)]
+special_character.extend([chr(d) for d in range(58,65)])
+special_character.extend([chr(e) for e in range(91,97)] )
+special_character.extend([chr(f) for f in range(123,127)])
+while True:
+    password = input('enter your password ')
+    if len(password) < 8:
+        print('the length of password should be atleast 8')
+    elif not any(ch in password for ch in special_character):
+        print('password must hold special_character\n')
+    elif not any(ch in password for ch in uppercase):
+        print('passcode must contain uppercase letters')
+    elif not any(ch in password for ch in lowercase):
+        print('passcode must contain lowercase letters')
+    elif not any(ch in password for ch in numbers):
+        print('it must also hold numbers(0-9)')
+    else:
+        print('you got strong password!! ')
+        exit()
+
+
+
+'''
+output:
+PS Z:\web_hacking\python\programs> python -u "z:\web_hacking\python\programs\practice.py"
+enter your passwordalsa
+the length of password should be atleast 8
+enter your passwordalsa123
+the length of password should be atleast 8
+enter your passwordalsaphlippes
+password must hold special_character
+
+enter your passwordalsaphlippes@
+passcode must contain uppercase letters
+enter your passwordAlsaphlippes@
+it must also hold numbers(0-9)
+enter your passwordAlsaphlippes@12
+you got strong password!! 
+PS Z:\web_hacking\python\programs> 
+'''
+-----------------------------------------------------------------------------
+#Simple Encryption: Shift each character’s ASCII value by +1 and store in a list.
+simple_text = input("Enter text to encode\n>>")
+encoded = []
+simple_text = simple_text.lower()
+for i in range(len(simple_text)):
+    print(f"ASCII valuse of {simple_text[i]} is: {ord(simple_text[i])}")
+    ascii = (ord(simple_text[i]) + 1) % 26 + 97
+    encoded.append(chr(ascii))
+print(''.join(encoded))
+
